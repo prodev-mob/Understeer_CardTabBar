@@ -28,17 +28,9 @@ class CardTabBarView: UITabBar {
         stackView.alignment = .fill
     }
 
-    private lazy var backgroundShadowView: UIImageView = .build { imageView in
-        imageView.image = UIImage(named: "tabbar_bg")
-    }
-
     fileprivate lazy var container: UIView = .build()
     
     // MARK: - Override
-    override var backgroundColor: UIColor? {
-        set { backgroundShadowView.tintColor = newValue }
-        get { return backgroundShadowView.tintColor }
-    }
     
     override var tintColor: UIColor! {
         set { barItemColor = newValue }
@@ -63,7 +55,6 @@ class CardTabBarView: UITabBar {
     // MARK: - Lifecycle
     override func layoutSubviews() {
         super.layoutSubviews()
-        container.layer.cornerRadius = container.bounds.height / 2
         addShadow()
     }
 
@@ -75,7 +66,7 @@ class CardTabBarView: UITabBar {
     // MARK: - UI
     private func setupUI() {
         barTintColor = .barTintColor
-        backgroundColor = .backgroundColor
+        backgroundColor = .barTintColor
         tintColor = .label
         indicatorColor = .tintColor
        
@@ -85,25 +76,19 @@ class CardTabBarView: UITabBar {
     }
 
     private func setupConstraint() {
-        addSubview(backgroundShadowView)
         addSubview(container)
         container.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            container.leadingAnchor.constraint(equalTo: leadingAnchor, constant: CardTabBarViewUI.padding),
-            container.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -CardTabBarViewUI.padding),
-            container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -CardTabBarViewUI.padding),
+            container.leadingAnchor.constraint(equalTo: leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+            container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             container.heightAnchor.constraint(equalToConstant: 60),
 
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
             stackView.topAnchor.constraint(equalTo: container.topAnchor),
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: CardTabBarViewUI.padding),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -CardTabBarViewUI.padding),
-            
-            backgroundShadowView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundShadowView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundShadowView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            backgroundShadowView.topAnchor.constraint(equalTo: topAnchor, constant: -40)
         ])
     }
 
