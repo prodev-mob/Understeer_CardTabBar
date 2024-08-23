@@ -96,7 +96,7 @@ class BarItemView: UIView {
         widthConstraint = viewContainer.widthAnchor.constraint(equalToConstant: 44)
         widthConstraint?.isActive = true
         
-        titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: 4)
+        titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor)
         titleLeadingConstraint?.isActive = true
     }
 
