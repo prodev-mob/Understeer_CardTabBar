@@ -83,12 +83,13 @@ class CardTabBarView: UITabBar {
             container.leadingAnchor.constraint(equalTo: leadingAnchor),
             container.trailingAnchor.constraint(equalTo: trailingAnchor),
             container.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            container.heightAnchor.constraint(equalToConstant: 60),
+            container.heightAnchor.constraint(equalToConstant: 68),
 
             stackView.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            stackView.topAnchor.constraint(equalTo: container.topAnchor),
+            stackView.topAnchor.constraint(equalTo: container.topAnchor, constant: 8),
             stackView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: CardTabBarViewUI.padding),
             stackView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -CardTabBarViewUI.padding),
+            stackView.heightAnchor.constraint(equalToConstant: 60),
         ])
     }
 
