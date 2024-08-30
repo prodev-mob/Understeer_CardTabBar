@@ -19,7 +19,7 @@ class BarItemView: UIView {
     lazy var indicatorView: UIView = .build()
 
     private lazy var labelTitle: UILabel = .build { label in
-        label.font = UIFont(name: "Poppins-Medium", size: 12)
+        label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 12)
     }
 
     private lazy var viewContainer: UIView = .build()

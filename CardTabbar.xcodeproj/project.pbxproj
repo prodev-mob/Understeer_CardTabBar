@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BDE226A42C78459300558C11 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDE226A32C78459300558C11 /* Poppins-Medium.ttf */; };
+		BD36B5EF2C81D3A9004C2133 /* TitilliumWeb-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BD36B5EE2C81D3A9004C2133 /* TitilliumWeb-SemiBold.ttf */; };
 		E326F2D7276632D900DBCBFC /* CardTabBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E326F2D1276632D900DBCBFC /* CardTabBar.framework */; };
 		E326F2D8276632D900DBCBFC /* CardTabBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E326F2D1276632D900DBCBFC /* CardTabBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E326F2E52766330200DBCBFC /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326F2DD2766330200DBCBFC /* UIView+.swift */; };
@@ -55,7 +55,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		BDE226A32C78459300558C11 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		BD36B5EE2C81D3A9004C2133 /* TitilliumWeb-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-SemiBold.ttf"; sourceTree = "<group>"; };
 		E326F2D1276632D900DBCBFC /* CardTabBar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CardTabBar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E326F2DD2766330200DBCBFC /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E326F2DE2766330200DBCBFC /* UIStackView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		BDE226A22C78458800558C11 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				BDE226A32C78459300558C11 /* Poppins-Medium.ttf */,
+				BD36B5EE2C81D3A9004C2133 /* TitilliumWeb-SemiBold.ttf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -304,8 +304,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3F58706274ED4F60092F30C /* LaunchScreen.storyboard in Resources */,
-				BDE226A42C78459300558C11 /* Poppins-Medium.ttf in Resources */,
 				E3F58703274ED4F60092F30C /* Assets.xcassets in Resources */,
+				BD36B5EF2C81D3A9004C2133 /* TitilliumWeb-SemiBold.ttf in Resources */,
 				E3F5872E275012D30092F30C /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
