@@ -11,8 +11,8 @@ import UIKit
 class BarItemView: UIView {
     // MARK: - Options
     private enum Options {
-        static let minWidth: CGFloat = 44
-        static let maxWidth: CGFloat = 110
+        static let minWidth: CGFloat = 65
+        static let maxWidth: CGFloat = 105
     }
 
     // MARK: - Views
@@ -20,6 +20,7 @@ class BarItemView: UIView {
 
     private lazy var labelTitle: UILabel = .build { label in
         label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 12)
+        label.textAlignment = .center
     }
 
     private lazy var viewContainer: UIView = .build()
@@ -32,7 +33,7 @@ class BarItemView: UIView {
     var isSelected: Bool = false {
         didSet {
             indicatorView.alpha = isSelected ? 1 : 0
-            widthConstraint?.constant = isSelected ? Options.maxWidth : Options.minWidth
+            widthConstraint?.constant = isSelected ? (self.button.tag == 2 ? 86 : Options.maxWidth) : Options.minWidth
             
             labelTitle.alpha = isSelected ? 1 : 0
             titleLeadingConstraint?.isActive = isSelected
@@ -90,7 +91,7 @@ class BarItemView: UIView {
             button.heightAnchor.constraint(equalTo: button.widthAnchor),
             
             labelTitle.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
-            labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -4),
+            labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -12),
         ])
         
         widthConstraint = viewContainer.widthAnchor.constraint(equalToConstant: 44)
