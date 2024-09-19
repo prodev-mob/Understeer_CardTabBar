@@ -12,7 +12,7 @@ class BarItemView: UIView {
     // MARK: - Options
     private enum Options {
         static let minWidth: CGFloat = 65
-        static let maxWidth: CGFloat = 105
+        static let maxWidth: CGFloat = 110
     }
 
     // MARK: - Views

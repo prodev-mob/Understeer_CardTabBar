@@ -9,7 +9,7 @@ import UIKit
 
 class CardTabBarView: UITabBar {
     fileprivate enum CardTabBarViewUI {
-        static let padding: CGFloat = 14
+        static let padding: CGFloat = 12
     }
     
     // MARK: - Properties
