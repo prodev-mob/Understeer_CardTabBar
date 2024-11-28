@@ -17,9 +17,19 @@ class BarItemView: UIView {
 
     // MARK: - Views
     lazy var indicatorView: UIView = .build()
-
+    
+    let screenHeight = UIScreen.main.bounds.height
+    
     private lazy var labelTitle: UILabel = .build { label in
-        label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 12)
+        if self.screenHeight <= 667 { // iPhone 8 or smaller
+            label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 11.50)
+        } else if self.screenHeight >= 812 && self.screenHeight < 896 { // iPhone X, iPhone 11 Pro, iPhone 12 Pro
+            label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 12)
+        } else if self.screenHeight >= 896 { // iPhone 11, iPhone 11 Pro Max, iPhone 12 Pro Max
+            label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 12)
+        } else {
+            label.font = UIFont(name: "TitilliumWeb-SemiBold", size: 11)
+        }
         label.textAlignment = .center
     }
 
@@ -73,7 +83,18 @@ class BarItemView: UIView {
         addSubview(viewContainer)
         viewContainer.addSubview(labelTitle)
         viewContainer.addSubview(button)
-
+        
+        let labelTrailingConstraint: NSLayoutConstraint
+           if screenHeight <= 667 { // iPhone 8 or smaller
+               labelTrailingConstraint = labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -4)
+           } else if screenHeight >= 812 && screenHeight < 896 { // iPhone X, iPhone 11 Pro, iPhone 12 Pro
+               labelTrailingConstraint = labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -12)
+           } else if screenHeight >= 896 { // iPhone 11, iPhone 11 Pro Max, iPhone 12 Pro Max
+               labelTrailingConstraint = labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -12)
+           } else {
+               labelTrailingConstraint = labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -4)
+           }
+        
         NSLayoutConstraint.activate([
             viewContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
             viewContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -91,13 +112,22 @@ class BarItemView: UIView {
             button.heightAnchor.constraint(equalTo: button.widthAnchor),
             
             labelTitle.centerYAnchor.constraint(equalTo: viewContainer.centerYAnchor),
-            labelTitle.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor, constant: -12),
+            labelTrailingConstraint
         ])
         
         widthConstraint = viewContainer.widthAnchor.constraint(equalToConstant: 44)
         widthConstraint?.isActive = true
         
-        titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor)
+        if screenHeight <= 667 { // iPhone 8 or smaller
+            titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: -3)
+        } else if screenHeight >= 812 && screenHeight < 896 { // iPhone X, iPhone 11 Pro, iPhone 12 Pro
+            titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor)
+        } else if screenHeight >= 896 { // iPhone 11, iPhone 11 Pro Max, iPhone 12 Pro Max
+            titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor)
+        } else {
+            titleLeadingConstraint = labelTitle.leadingAnchor.constraint(equalTo: button.trailingAnchor, constant: -3)
+        }
+        
         titleLeadingConstraint?.isActive = true
     }
 
